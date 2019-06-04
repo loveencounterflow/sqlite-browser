@@ -49,11 +49,12 @@ _$count = ( step ) ->
   validate.nonempty_text value
   S       = {}
   S.db    = DB.new_db db_path
-  source  = PD.new_generator_source S.db.read_lines()
+  sql     = value
+  source  = PD.new_generator_source S.db.$.query sql
   #.........................................................................................................
   pipeline = []
   pipeline.push source
-  pipeline.push _$count 1
+  pipeline.push _$count 100
   ### TAINT resolve may be called twice ###
   # pipeline.push PD.$sort()                          if testing
   pipeline.push PSPG.$tee_as_table -> resolve()
@@ -63,17 +64,24 @@ _$count = ( step ) ->
   #.........................................................................................................
   return null
 
+#-----------------------------------------------------------------------------------------------------------
+@cli = ( db_path, key, value ) ->
+  #.......................................................................................................
+  validate.sqlb_db_path db_path
+  validate.sqlb_key     key
+  # debug 'µ33444', arguments
+  # debug 'µ33444', "running #{__filename} #{jr [ db_path, key, value, ]}"
+  await @browse db_path, key, value
+  # settings = L.new_settings './README.md'
+  # db_path = PATH.resolve '/home/flow/jzr/mkts-mirage/db/mkts.db'
+  # await L.browse db_path, 'c', "select * from main;"
+  # help 'ok'
 
 
 ############################################################################################################
 unless module.parent?
   testing = true
   L = @
-  do ->
-    #.......................................................................................................
-    # settings = L.new_settings './README.md'
-    db_path = PATH.resolve '/home/flow/jzr/mkts-mirage/db/mkts.db'
-    await L.browse db_path, 'c', "select * from main;"
-    help 'ok'
+  @cli()
 
 

@@ -39,3 +39,15 @@ intertype                 = new Intertype module.exports
 #     "x.$vnr is an optional nonempty list of positive integers": ( x ) ->
 #       ( not x.$vnr? ) or @isa.pd_nonempty_list_of_positive_integers x.$vnr
 
+
+#-----------------------------------------------------------------------------------------------------------
+@declare 'sqlb_db_path',
+  tests:
+    "x is a nonempty_text":                          ( x ) -> @isa.nonempty_text          x
+
+#-----------------------------------------------------------------------------------------------------------
+@declare 'sqlb_key',
+  tests:
+    "x is a nonempty_text":                          ( x ) -> @isa.nonempty_text          x
+
+

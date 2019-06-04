@@ -50,8 +50,8 @@ ICQL                      = require 'icql'
   return R
 
 #-----------------------------------------------------------------------------------------------------------
-@new_db = ( settings ) ->
-  settings              = @_get_icql_settings settings
+@new_db = ( db_path ) ->
+  settings              = @_get_icql_settings db_path
   db                    = ICQL.bind settings
   @load_extensions      db
   @set_pragmas          db
