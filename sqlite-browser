@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 'use strict'
 
-console.log( process.argv );
 require( './lib/main.js' ).cli( ...process.argv.slice( 2 ) );
 
