@@ -82,6 +82,8 @@ _$count = ( step ) ->
 unless module.parent?
   testing = true
   L = @
-  @cli()
+  do ->
+    await L.cli process.argv[ 2 .. ]...
+    help 'ok'
 
 
