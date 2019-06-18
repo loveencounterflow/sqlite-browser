@@ -21,9 +21,9 @@
   "license": "ISC",
   "dependencies": {
     "cnd": "^4.6.0",
-    "icql": "^3.0.1",
-    "intertype": "^2.4.0",
-    "pipedreams": "^8.2.0",
-    "pspg": "^1.1.1"
+    "icql": "^4.0.0",
+    "intertype": "^2.5.0",
+    "pipedreams": "^8.9.1",
+    "pspg": "^1.3.0"
   }
 }
