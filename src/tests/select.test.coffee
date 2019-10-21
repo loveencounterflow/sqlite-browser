@@ -6,7 +6,7 @@
 ############################################################################################################
 CND                       = require 'cnd'
 rpr                       = CND.rpr
-badge                     = 'PIPEDREAMS/TESTS/SELECT'
+badge                     = 'SQLITE-BROWSER/TESTS/SELECT'
 debug                     = CND.get_logger 'debug',     badge
 warn                      = CND.get_logger 'warn',      badge
 info                      = CND.get_logger 'info',      badge
@@ -18,13 +18,15 @@ echo                      = CND.echo.bind CND
 test                      = require 'guy-test'
 jr                        = JSON.stringify
 #...........................................................................................................
-L                         = require '../select'
+# L                         = require '../select'
 PD                        = require '../..'
 # { $, $async, }            = PD
 
 
 #-----------------------------------------------------------------------------------------------------------
-@[ "_to be written" ] = ( T, done ) ->
+@[ "to be written" ] = ( T, done ) ->
+  T.fail "no test"
+  return done()
   probes_and_matchers = [
     [[ null, '^number',],false]
     [[ 123, '^number',],false]
