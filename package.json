@@ -1,6 +1,6 @@
 {
   "name": "sqlite-browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Query and page SQLite3 DBs from the command line",
   "main": "lib/main.js",
   "scripts": {
