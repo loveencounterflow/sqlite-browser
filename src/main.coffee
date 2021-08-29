@@ -45,6 +45,7 @@ _$count = ( step ) ->
 #-----------------------------------------------------------------------------------------------------------
 @browse = ( db_path, key, value ) -> new Promise ( resolve, reject ) =>
   # validate.sqlb_settings settings
+  debug '^7356347^', { db_path, key, value, }
   throw new Error "µ33221 Error" unless key is 'c'
   validate.nonempty_text value
   S       = {}
